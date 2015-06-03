@@ -3,7 +3,7 @@ var TestUtils = require('react/lib/ReactTestUtils');
 var React = require('react');
 var expect = require('expect');
 
-var wasSubmitted;
+var app, wasSubmitted;
 
 function handleOnSubmit(e) {
     e.preventDefault();
@@ -11,7 +11,7 @@ function handleOnSubmit(e) {
 }
 
 function render() {
-    return TestUtils.renderIntoDocument(App, { onSubmit: handleOnSubmit });
+    return TestUtils.renderIntoDocument(<App onSubmit={handleOnSubmit} />);
 }
 
 describe("submitting a form", function() {
@@ -19,6 +19,6 @@ describe("submitting a form", function() {
         app = render();
         var form = React.findDOMNode(app);
         TestUtils.Simulate.submit(form);
-        expect(wasSubmitted).toBe();
+        expect(wasSubmitted).toBe(true);
     });
 });

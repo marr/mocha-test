@@ -1,3 +1,9 @@
 var React = require('react');
-
-module.exports = React.createElement('form');
+var newforms = require('newforms');
+module.exports = React.createClass({
+    render: function() {
+        var form = newforms.Form.extend();
+        var newform = <newforms.RenderForm form={form} />;
+        return <form {...this.props}>{newform}</form>;
+    }
+});
