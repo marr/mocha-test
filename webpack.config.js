@@ -3,13 +3,13 @@ var ROOT_PATH = path.resolve(__dirname, '.');
 var dirs = [ROOT_PATH + '/app', ROOT_PATH + '/test'];
 
 module.exports = {
-    entry: ['mocha!./test/main_spec.js'],
+    entry: ['./app/main.js'],
     output: {
         path: ROOT_PATH + '/build',
         filename: '[name].js'
     },
     module: {
-        loaders: [{ test: /\.jsx?$/, loader: 'babel-loader', include: dirs }]
+        loaders: [{ test: /\.jsx?$/, loader: 'babel', include: dirs }]
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],
